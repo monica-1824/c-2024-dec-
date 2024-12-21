@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+// Function to check if a number is a Buzz Number
+bool isBuzzNumber(int number) {
+    // Check if divisible by 7 or ends with 7
+    return (number % 7 == 0 || number % 10 == 7);
+}
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    if (isBuzzNumber(num)) {
+        cout << num << " is a Buzz Number." << endl;
+    } else {
+        cout << num << " is not a Buzz Number." << endl;
+    }
+
+    return 0;
+}
