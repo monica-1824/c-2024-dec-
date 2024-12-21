@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+// Function to count the number of digits in a number
+int countDigits(int number) {
+    int count = 0;
+    while (number > 0) {
+        number /= 10;
+        count++;
+    }
+    return count;
+}
+
+// Function to check if a number is a Narcissistic Number
+bool isNarcissistic(int number) {
+    int sum = 0, temp = number;
+    int digits = countDigits(number); // Count the number of digits
+    
+    while (temp > 0) {
+        int digit = temp % 10; // Extract the last digit
+        sum += pow(digit, digits); // Add the digit raised to the power of digits
+        temp /= 10; // Remove the last digit
+    }
+    return sum == number; // Compare the sum with the original number
+}
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    if (isNarcissistic(num)) {
+        cout << num << " is a Narcissistic Number." << endl;
+    } else {
+        cout << num << " is not a Narcissistic Number." << endl;
+    }
+
+    return 0;
+}
